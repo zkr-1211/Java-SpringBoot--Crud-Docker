@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zls.zzz.mapper.RoleMapper">
+
+    <resultMap id="BaseResultMap" type="com.zls.zzz.entity.Role">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="type" jdbcType="INTEGER" property="type" />
+    </resultMap>
+
+    <!--新增-->
+    <insert id="add" parameterType="com.zls.zzz.entity.Role">
+
+        insert into role (name,type) values (#{name},#{type});
+
+    </insert>
+
+    <!--删除-->
+    <delete id="del" parameterType="java.lang.Integer">
+
+        delete from role where id = #{id};
+
+    </delete>
+
+    <!--修改-->
+    <update id="edit">
+
+        update role set name = #{name},type=#{type} where id = #{id};
+
+    </update>
+
+    <!--查询所有-->
+    <select id="findAll" resultType="com.zls.zzz.entity.Role">
+        select * from role;
+    </select>
+
+    <!--查询单条-->
+    <select id="findOne"  resultType="com.zls.zzz.entity.Role" >
+
+        select  * from role where  id = #{id};
+
+    </select>
+
+
+</mapper>

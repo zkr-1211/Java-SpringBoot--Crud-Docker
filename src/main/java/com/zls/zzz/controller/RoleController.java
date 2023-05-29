@@ -1,7 +1,7 @@
 package com.zls.zzz.controller;
 
-import com.zls.zzz.entity.User;
-import com.zls.zzz.service.UserService;
+import com.zls.zzz.entity.Role;
+import com.zls.zzz.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,21 +11,21 @@ import java.util.List;
  * @author zls
  */
 @RestController
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/role")
+public class RoleController {
 
     @Autowired
-    private UserService userService;
+    private RoleService roleService;
 
     /**
      * 新增
      *
-     * @param user
+     * @param role
      * @return boolean
      */
     @PostMapping("/add")
-    public Boolean add(User user) {
-        return userService.add(user);
+    public Boolean add(Role role) {
+        return roleService.add(role);
     }
 
     /**
@@ -36,18 +36,18 @@ public class UserController {
      */
     @GetMapping("/del/{id}")
     public Boolean del(@PathVariable int id) {
-        return userService.del(id);
+        return roleService.del(id);
     }
 
     /**
      * 修改
      *
-     * @param user
+     * @param role
      * @return
      */
     @PostMapping("/edit")
-    public Boolean edit(User user) {
-        return userService.edit(user);
+    public Boolean edit(Role role) {
+        return roleService.edit(role);
     }
 
     /**
@@ -56,8 +56,8 @@ public class UserController {
      * @return
      */
     @GetMapping("/findAll")
-    public List<User> findAll() {
-        return userService.findAll();
+    public List<Role> findAll() {
+        return roleService.findAll();
     }
 
     /**
@@ -67,8 +67,8 @@ public class UserController {
      * @return
      */
     @GetMapping("/findOne/{id}")
-    public User findOne(@PathVariable int id) {
-        return userService.findOne(id);
+    public Role findOne(@PathVariable int id) {
+        return roleService.findOne(id);
     }
 
 }
